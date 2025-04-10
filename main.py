@@ -6,6 +6,9 @@ from flask_login import LoginManager
 
 from db.models import DB
 
+from routes.users import usersblock
+
+
 app = Flask(__name__)
 
 load_dotenv()
