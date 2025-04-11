@@ -5,6 +5,7 @@ from werkzeug.security import check_password_hash
 
 from db.models import DB, Users
 from utils.utils import get_users
+from utils.lang import lang_list, lang as LANG
 
 users = Blueprint('users', __name__)
 
@@ -18,6 +19,7 @@ def logout():
 @users.route('/authorize', methods=['GET', 'POST'])
 def authorize() -> render_template:
     """Авторизация пользоваетеля"""
+    title = LANG['auth_title']['en']
     err = ""
     if request.method == 'POST':
         user = Users.query.filter_by(username=request.form['username']).first()
@@ -29,7 +31,7 @@ def authorize() -> render_template:
                 err = "Неверный пароль"
         else:
             err = "Такой пользователь не существует"
-    return render_template("authorize.html", err=err)
+    return render_template("users/authorize.html", err=err, title=title)
 
 
 @users.route('/registration', methods=['GET', 'POST'])
@@ -54,4 +56,4 @@ def registration() -> render_template:
                 DB.session.add(registr)
                 DB.session.commit()
                 return redirect(url_for('.authorize'))
-    return render_template('registration.html', err=err)
+    return render_template('users/registration.html', err=err)

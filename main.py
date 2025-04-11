@@ -4,12 +4,16 @@ from dotenv import load_dotenv
 from flask_wtf import CSRFProtect
 from flask_login import LoginManager
 
-from db.models import DB
+from db.models import DB, Users
 
-from routes.users import usersblock
+from routes.users import users
+from routes.contacter import contacteur
 
 
 app = Flask(__name__)
+
+app.register_blueprint(users, url_prefix='/users')
+app.register_blueprint(contacteur, url_prefix='/contacteur')    
 
 load_dotenv()
 app.config['SECRET_KEY'] = os.getenv('secret_key')
@@ -19,7 +23,7 @@ DB.init_app(app)
 
 
 login_manager = LoginManager(app)
-login_manager.login_view = 'usersblock.authorize'
+login_manager.login_view = 'users.authorize'
 csrf = CSRFProtect(app)
 
 
@@ -27,15 +31,13 @@ csrf = CSRFProtect(app)
 def load_user(user_id) -> object:
     """Загрузка пользователя"""
     try:
-        return
-        # return DB.session.query(Users).filter_by(id=user_id).one()
+        return DB.session.query(Users).filter_by(id=user_id).one()
     except Exception:
-        return
-        # return redirect(url_for('usersblock.authorize'))
+        return redirect(url_for('users.authorize'))
         
         
 def main():
-    # DB.create_all()
+    DB.create_all()
     app.run(host='0.0.0.0', port='5002', debug=True)
     
 

@@ -34,4 +34,8 @@ lang = {
         'en': 'profile',
         'ru': 'профиль',
     },
+    'auth_title': {
+        'en': 'Contacteur - Authorization',
+        'ru': 'Contacteur - Авторизация',
+    }
 }
