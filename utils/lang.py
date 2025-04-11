@@ -19,8 +19,8 @@ lang = {
         'ru': 'выход',
     },
     'user': {
-        'en': 'user',
-        'ru': 'пользователь',
+        'en': 'user name',
+        'ru': 'Имя пользователя',
     },
     'language': {
         'en': 'language',
@@ -37,5 +37,9 @@ lang = {
     'auth_title': {
         'en': 'Contacteur - Authorization',
         'ru': 'Contacteur - Авторизация',
+    },
+    'author' : {
+        'en': '(c) 2025 Diman_Chik. All Rights Reserved.',
+        'ru': '(c) 2025 Diman_Chik. Все права защищены.',
     }
 }

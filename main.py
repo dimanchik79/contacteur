@@ -13,7 +13,7 @@ from routes.contacter import contacteur
 app = Flask(__name__)
 
 app.register_blueprint(users, url_prefix='/users')
-app.register_blueprint(contacteur, url_prefix='/contacteur')    
+app.register_blueprint(contacteur)
 
 load_dotenv()
 app.config['SECRET_KEY'] = os.getenv('secret_key')

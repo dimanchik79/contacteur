@@ -1,6 +1,48 @@
 {% extends "base.html" %}
 
 {% block body %}
- FUCK OFF
+<form method="POST">
+    <div class="container fixed-top">
+        <div class="d-flex flex-row justify-content-center align-items-center fixed-top" style="height: 100px;">
+        {% for lng, lng_name in lang_list.items() %}
+            <div>
+                <a href="{{ url_for('.change_lang', lng=lng) }}" class="btn btn-secondary btn-sm me-3">{{ lng|upper }}</a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="authorize__wrap">
+        <div class="authorize text-center"> 
+            
+            <div>
+                <img src="{{ url_for('static', filename='img/logo.png')}}" alt="logo" width="450" height="125">
+            </div>
+            
+            <div class="mt-5 me-5 ms-5">
+                <div class="mb-3 text-start">
+                    <label for="username" class="form-label">{{ language.user[_lng]|capitalize }}</label>
+                    <input type="text" class="form-control" id="username">
+                  </div>
+                  <div class="mb-3 text-start">
+                    <label for="password" class="form-label">{{ language.password[_lng]|capitalize }}</label>
+                    <input type="password" class="form-control" id="password">
+                  </div>
+                
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-primary">{{ language.enter[_lng]|capitalize }}</button>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <a href="{{ url_for('.registration') }}" class="btn btn-success">{{ language.registration[_lng] }}</a>
+            </div>
+
+        </div>
+    </div>
+    </form>
+
+    <div class="text-center fixed-bottom mb-5">
+        <span>{{ language.author[_lng] }}</span>
+    </div>
 {% endblock body %}
 

@@ -1,10 +1,10 @@
-from flask import Blueprint, redirect,render_template, request, url_for
-from flask_login import login_required, login_user, logout_user
+from flask import Blueprint, redirect,render_template, request, url_for, session
+from flask_login import login_required, login_user, logout_user, current_user
 
 from werkzeug.security import check_password_hash
 
 from db.models import DB, Users
-from utils.utils import get_users
+from utils.utils import get_users, set_language
 from utils.lang import lang_list, lang as LANG
 
 users = Blueprint('users', __name__)
@@ -19,7 +19,9 @@ def logout():
 @users.route('/authorize', methods=['GET', 'POST'])
 def authorize() -> render_template:
     """Авторизация пользоваетеля"""
-    title = LANG['auth_title']['en']
+    lng = set_language(request)
+    if current_user.is_authenticated:
+        return redirect(url_for('contacteur.index'))
     err = ""
     if request.method == 'POST':
         user = Users.query.filter_by(username=request.form['username']).first()
@@ -31,7 +33,12 @@ def authorize() -> render_template:
                 err = "Неверный пароль"
         else:
             err = "Такой пользователь не существует"
-    return render_template("users/authorize.html", err=err, title=title)
+    return render_template("users/authorize.html",
+                           err=err,
+                           title=LANG['auth_title'][lng],
+                           language=LANG,
+                           lang_list=lang_list,
+                           _lng=lng)
 
 
 @users.route('/registration', methods=['GET', 'POST'])
@@ -57,3 +64,12 @@ def registration() -> render_template:
                 DB.session.commit()
                 return redirect(url_for('.authorize'))
     return render_template('users/registration.html', err=err)
+
+
+@users.route('/change_lang/<lng>', methods=['GET', 'POST'])
+def change_lang(lng) -> redirect:
+    """Смена языка сайта"""
+    if lng in ['ru', 'en']:
+        session['lng'] = lng
+    return redirect(url_for('.authorize'))
+    

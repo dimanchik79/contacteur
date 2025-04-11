@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import current_user, login_required
+from utils.lang import lang as LANG
 
 contacteur = Blueprint('contacteur', __name__)
 
@@ -7,7 +8,7 @@ contacteur = Blueprint('contacteur', __name__)
 @login_required
 def index() -> render_template:
     """Главная страница"""
-    return render_template('contacteur/index.html')
+    return render_template('contacteur/index.html', language=LANG)
 
 
 # ABOUT PAGE
