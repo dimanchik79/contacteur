@@ -16,6 +16,8 @@ app.register_blueprint(users, url_prefix='/users')
 app.register_blueprint(contacteur)
 
 load_dotenv()
+app.config['SESION_TYPE'] = 'filesystem'
+app.config['SESSION_PERMANENT'] = False
 app.config['SECRET_KEY'] = os.getenv('secret_key')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('db')
 app.app_context().push()
