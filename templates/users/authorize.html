@@ -2,8 +2,8 @@
 
 {% block body %}
 <form method="POST">
-    <div class="container fixed-top">
-        <div class="d-flex flex-row justify-content-center align-items-center fixed-top" style="height: 100px;">
+    <div class="container">
+        <div class="d-flex flex-row justify-content-center align-items-center fixed-top" style="height: 50px;">
         {% for lng, lng_name in lang_list.items() %}
             <div>
                 <a href="{{ url_for('.change_lang', lng=lng) }}" class="btn btn-secondary btn-sm me-3">{{ lng|upper }}</a>
@@ -36,13 +36,21 @@
             <div class="mt-5">
                 <a href="{{ url_for('.registration') }}" class="btn btn-success">{{ language.registration[_lng] }}</a>
             </div>
+            
+            {% if error %}
+            <div class="mt-5" style="color: tomato;">
+                {{ error }}
+            </div>
+            {% endif %}
 
         </div>
     </div>
     </form>
 
-    <div class="text-center fixed-bottom mb-5">
-        <span>{{ language.author[_lng] }}</span>
+    <div class="container">
+        <div class="d-flex flex-row justify-content-center align-items-center fixed-bottom footer__authorize">
+            <div>{{ language.author[_lng] }}</div>
+        </div>
     </div>
 {% endblock body %}
 

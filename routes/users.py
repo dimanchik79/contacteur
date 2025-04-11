@@ -34,7 +34,7 @@ def authorize() -> render_template:
         else:
             err = "Такой пользователь не существует"
     return render_template("users/authorize.html",
-                           err=err,
+                           error=err,
                            title=LANG['auth_title'][lng],
                            language=LANG,
                            lang_list=lang_list,
@@ -63,7 +63,7 @@ def registration() -> render_template:
                 DB.session.add(registr)
                 DB.session.commit()
                 return redirect(url_for('.authorize'))
-    return render_template('users/registration.html', err=err)
+    return render_template('users/registration.html', error=err)
 
 
 @users.route('/change_lang/<lng>', methods=['GET', 'POST'])
