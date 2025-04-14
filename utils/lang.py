@@ -1,61 +1,66 @@
-lang_list = {'en': 'english',
+lang_list = {'eng': 'english',
              'ru': 'русский'}
 
 lang = {
+
     'registration': {
-        'en': 'No account? Register.',
+        'eng': 'No account? Register.',
         'ru': 'Нет аккаунта? Зарегистрируйтесь.',
     },
     'login': {
-        'en': 'login',
+        'eng': 'login',
         'ru': 'логин',
     },
     'password': {
-        'en': 'password',
+        'eng': 'password',
         'ru': 'пароль',
     },
     'exit': {
-        'en': 'exit',
+        'eng': 'exit',
         'ru': 'выход',
     },
     'user': {
-        'en': 'user name',
+        'eng': 'user name',
         'ru': 'Имя пользователя',
     },
     'language': {
-        'en': 'language',
+        'eng': 'language',
         'ru': 'язык',
     },
     'enter': {
-        'en': 'enter',
+        'eng': 'enter',
         'ru': 'вход',
     },
     'profile': {
-        'en': 'profile',
+        'eng': 'profile',
         'ru': 'профиль',
     },
     'auth_title': {
-        'en': 'Contacteur - Authorization',
+        'eng': 'Contacteur - Authorization',
         'ru': 'Contacteur - Авторизация',
     },
     'registration_title': {
-        'en': 'Contacteur - Registration',
+        'eng': 'Contacteur - Registration',
         'ru': 'Contacteur - Регистрация',
     },
+        'contacteur_title': {
+        'eng': 'Contacteur (ENG)',
+        'ru': 'Contacteur (RU)',
+    },
     'registration_text': {
-        'en': 'REGISTRATION',
+        'eng': 'REGISTRATION',
         'ru': 'РЕГИСТРАЦИЯ',
     },
     'author' : {
-        'en': '(c) 2025 Diman_Chik. All Rights Reserved.',
+        'eng': '(c) 2025 Diman_Chik. All Rights Reserved.',
         'ru': '(c) 2025 Diman_Chik. Все права защищены.',
     },
     'reg_button': {
-        'en': 'register',
+        'eng': 'register',
         'ru': 'зарегистрироваться'
     },
     'cancel': {
-        'en': 'cancel',
+        'eng': 'cancel',
         'ru': 'отмена',
     }
 }

@@ -8,8 +8,10 @@ contacteur = Blueprint('contacteur', __name__)
 @login_required
 def index() -> render_template:
     """Главная страница"""
-    
-    return render_template('contacteur/index.html', language=LANG, lng=current_user.language)
+    lng=current_user.language
+    return render_template('contacteur/index.html', 
+                           title=LANG['contacteur_title'][lng], 
+                           lng=lng)
 
 
 # ABOUT PAGE

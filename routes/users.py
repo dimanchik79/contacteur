@@ -74,7 +74,7 @@ def registration() -> render_template:
 @users.route('/change_lang/<lng>', methods=['GET', 'POST'])
 def change_lang(lng) -> redirect:
     """Смена языка сайта"""
-    if lng in ['ru', 'en']:
+    if lng in lang_list.keys():
         session['lng'] = lng
     return redirect(url_for('.authorize'))
     

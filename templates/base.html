@@ -9,6 +9,12 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    {% block body %}{% endblock body %}
+    {% block body %}
+
+    {% if request.path == 'index' %}
+    BZBZ
+    {% endif %}
+    
+    {% endblock body %}
 </body>
 </html>
