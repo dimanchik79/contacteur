@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from flask_wtf import CSRFProtect
 from flask_login import LoginManager
 
+from utils.utils import get_uniq
+
 from db.models import DB, Users
 
 from routes.users import users

@@ -1,3 +1,4 @@
+import uuid
 from flask import session
 from db.models import DB, Users
 
@@ -7,6 +8,11 @@ def set_language(request) -> dict:
     if not session.get('lng'):
         session['lng'] = 'en'
     return session['lng']
+
+
+def get_uniq() -> str:
+    """Генерация уникального значения"""
+    return str(uuid.uuid4())
     
         
 def get_users(id: int) -> list:
@@ -17,4 +23,6 @@ def get_users(id: int) -> list:
     return [{'id': item.id,
              'username': item.username,
              'password': item.password,
+             'language': item.language,
              } for item in items]
+

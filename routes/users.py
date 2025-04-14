@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect,render_template, request, url_for, session
 from flask_login import login_required, login_user, logout_user, current_user
 
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from db.models import DB, Users
 from utils.utils import get_users, set_language
@@ -58,7 +58,7 @@ def registration() -> render_template:
                 err = "Пользователь с таким логином уже существует"
         if err == "":
                 registr = Users(username=username, 
-                                password=password,
+                                password=generate_password_hash(password),
                                 language=lng)
                 DB.session.add(registr)
                 DB.session.commit()

@@ -9,17 +9,17 @@
             <div>
                 <img src="{{ url_for('static', filename='img/logo.png')}}" alt="logo" width="450" height="125">
             </div>
-            <div class="mt-3 mb-3 text-center h3">
-                <h1>{{ language.registration_text[_lng] }}</h1>
+            <div class="mt-5 mb-5 text-center h2">
+                {{ language.registration_text[_lng] }}
             </div>
             <div class="mt-5 me-5 ms-5">
                 <div class="mb-3 text-start">
                     <label for="username" class="form-label">{{ language.user[_lng]|capitalize }}</label>
-                    <input type="text" class="form-control" id="username">
+                    <input type="text" class="form-control" id="username" name="username"> 
                   </div>
                   <div class="mb-3 text-start">
                     <label for="password" class="form-label">{{ language.password[_lng]|capitalize }}</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                   </div>
                 
                 <div class="mt-5">

@@ -4,7 +4,7 @@
 <form method="POST">
     <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}"> 
     <div class="container">
-        <div class="d-flex flex-row justify-content-center align-items-center fixed-top" style="height: 50px;">
+        <div class="d-flex flex-row justify-content-center align-items-center fixed-top" style="height: 100px;">
         {% for lng, lng_name in lang_list.items() %}
             <div>
                 <a href="{{ url_for('.change_lang', lng=lng) }}" class="btn btn-secondary btn-sm me-3">{{ lng|upper }}</a>
@@ -22,11 +22,11 @@
             <div class="mt-5 me-5 ms-5">
                 <div class="mb-3 text-start">
                     <label for="username" class="form-label">{{ language.user[_lng]|capitalize }}</label>
-                    <input type="text" class="form-control" id="username">
+                    <input type="text" class="form-control" id="username" name="username">
                   </div>
                   <div class="mb-3 text-start">
                     <label for="password" class="form-label">{{ language.password[_lng]|capitalize }}</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                   </div>
                 
                 <div class="mt-5">
