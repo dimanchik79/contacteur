@@ -20,8 +20,6 @@ def logout():
 def authorize() -> render_template:
     """Авторизация пользоваетеля"""
     lng = set_language(request)
-    if current_user.is_authenticated:
-        return redirect(url_for('contacteur.index'))
     err = ""
     if request.method == 'POST':
         user = Users.query.filter_by(username=request.form['username']).first()
@@ -45,6 +43,7 @@ def authorize() -> render_template:
 def registration() -> render_template:
     """Заявка на регистрацию пользователя"""
     err = ""
+    lng = set_language(request)
     if request.method == 'POST':
         if 'cancel' in request.form:
             return redirect(url_for('.authorize'))
@@ -59,11 +58,17 @@ def registration() -> render_template:
                 err = "Пользователь с таким логином уже существует"
         if err == "":
                 registr = Users(username=username, 
-                                password=password)
+                                password=password,
+                                language=lng)
                 DB.session.add(registr)
                 DB.session.commit()
                 return redirect(url_for('.authorize'))
-    return render_template('users/registration.html', error=err)
+    return render_template('users/registration.html', 
+                           error=err,
+                           title=LANG['registration_title'][lng],
+                           language=LANG,
+                           lang_list=lang_list,
+                           _lng=lng)
 
 
 @users.route('/change_lang/<lng>', methods=['GET', 'POST'])

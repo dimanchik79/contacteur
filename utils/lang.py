@@ -38,8 +38,24 @@ lang = {
         'en': 'Contacteur - Authorization',
         'ru': 'Contacteur - Авторизация',
     },
+    'registration_title': {
+        'en': 'Contacteur - Registration',
+        'ru': 'Contacteur - Регистрация',
+    },
+    'registration_text': {
+        'en': 'REGISTRATION',
+        'ru': 'РЕГИСТРАЦИЯ',
+    },
     'author' : {
         'en': '(c) 2025 Diman_Chik. All Rights Reserved.',
         'ru': '(c) 2025 Diman_Chik. Все права защищены.',
+    },
+    'reg_button': {
+        'en': 'register',
+        'ru': 'зарегистрироваться'
+    },
+    'cancel': {
+        'en': 'cancel',
+        'ru': 'отмена',
     }
 }
