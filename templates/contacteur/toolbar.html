@@ -39,7 +39,7 @@
 
 
 <div class="toolbar__item toolbar__item__shadow">
-    <a href="#">
+    <a href="{{ url_for('users.logout')}}">
         <img src="{{ url_for('static', filename='img/exit.png') }}" alt="exit" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.exit[_lng]|capitalize }}">
     </a>
 </div>
