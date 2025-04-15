@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect,render_template, request, url_for, session
-from flask_login import login_required, login_user, logout_user, current_user
+from flask_login import login_required, login_user, logout_user
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -26,7 +26,7 @@ def authorize() -> render_template:
         if user:
             if user.username == request.form['username'] and check_password_hash(user.password, request.form['password']):
                 login_user(user, remember=True)
-                return redirect(url_for('contacteur.index'))
+                return redirect(url_for('contacteur.index', level=0))
             else:
                 err = "Неверный пароль"
         else:
@@ -41,7 +41,7 @@ def authorize() -> render_template:
 
 @users.route('/registration', methods=['GET', 'POST'])
 def registration() -> render_template:
-    """Заявка на регистрацию пользователя"""
+    """Регистрация пользователя"""
     err = ""
     lng = set_language(request)
     if request.method == 'POST':

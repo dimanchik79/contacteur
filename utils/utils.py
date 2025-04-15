@@ -6,7 +6,7 @@ from db.models import DB, Users
 def set_language(request) -> dict:
     """Установка языка"""
     if not session.get('lng'):
-        session['lng'] = 'en'
+        session['lng'] = 'eng'
     return session['lng']
 
 

@@ -1,11 +1,22 @@
+:root {
+    --bg-main: #344146;
+    --bg-toolbar: #00bcd4;
+    --toolbar-item: #ffff;
+    --bg-navbar: rgb(179, 252, 218);
+}
+
 * {
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
-    background-color: #344146;
+    background-color: var(--bg-main);
     color: beige;
     height: 100%;
     width: auto;
@@ -28,4 +39,84 @@ body {
     height: 35px;
     color: black;
     background-color: cadetblue;
-}  
+}
+
+.structure {
+    display: flex;
+    flex-direction: row;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 65px;
+    height: 100vh;
+    background-color: var(--bg-toolbar);
+    color: white;
+    padding: 5px;
+    box-sizing: border-box;
+    border-right: 2px solid black;
+
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-navbar);
+    overflow-x: auto;
+}
+
+.content {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-main);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: auto;
+
+}
+
+.toolbar__background {
+    background: -webkit-linear-gradient(90deg, rgb(191, 235, 253), var(--bg-toolbar));
+    background: -moz-linear-gradient(90deg, rgb(191, 235, 253),  var(--bg-toolbar));
+    background: linear-gradient(90deg, rgb(191, 235, 253),  var(--bg-toolbar));
+}
+
+.navbar__background {
+    background: -webkit-linear-gradient(180deg, rgb(191, 235, 253), var(--bg-navbar));
+    background: -moz-linear-gradient(180deg, rgb(191, 235, 253),  var(--bg-navbar));
+    background: linear-gradient(180deg, rgb(191, 235, 253),  var(--bg-navbar));
+}
+
+.toolbar__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--toolbar-item);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: black;
+}
+
+.toolbar__item__shadow {
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(21, 26, 31, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(21, 26, 31, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(21, 26, 31, 0.2);
+}

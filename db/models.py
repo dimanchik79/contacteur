@@ -10,7 +10,7 @@ class Users(UserMixin, DB.Model):
     id = DB.Column(DB.Integer, primary_key=True, )
     username = DB.Column(DB.String(256), nullable=False)
     password = DB.Column(DB.String(162), nullable=False)
-    language = DB.Column(DB.String(2), nullable=False, default='en')
+    language = DB.Column(DB.String(3), nullable=False, default='eng')
     
     catalog = DB.relationship('Catalog', backref='users')
     

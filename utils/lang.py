@@ -62,5 +62,25 @@ lang = {
     'cancel': {
         'eng': 'cancel',
         'ru': 'отмена',
+    },
+    'back': {
+        'eng': 'back',
+        'ru': 'назад',
+    },
+    'home': {
+        'eng': 'home',
+        'ru': 'в начало',
+    },
+    'add_contact': {
+        'eng': 'add contact',
+        'ru': 'добавить контакт',
+    },
+    'add_folder': {
+        'eng': 'add folder',
+        'ru': 'добавить папку',
+    },
+    'add_note': {
+        'eng': 'add note',
+        'ru': 'добавить заметку',
     }
 }

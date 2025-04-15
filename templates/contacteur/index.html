@@ -2,5 +2,20 @@
 
 
 {% block body %}
-{{ lng }}
+<div class="structure">
+    <div class="toolbar toolbar__background">
+        {% include "contacteur/toolbar.html" %}
+    </div>
+    <div class="navigation">
+        <div class="content">
+            {% include "contacteur/content.html" %}
+        </div>
+        <div class="navbar navbar__background">
+            {% include "contacteur/navbar.html" %}
+        </div>
+    </div>
+    
+    
+</div>
+
 {% endblock body %}

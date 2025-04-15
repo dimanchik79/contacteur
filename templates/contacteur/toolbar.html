@@ -1,0 +1,46 @@
+<!-- Index page's toolbar -->
+{% if level != 0 %}
+<div>
+    <div class="toolbar__item toolbar__item__shadow">
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/back.png') }}" alt="back" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.back[_lng]|capitalize }}">
+        </a>
+    </div>
+    <div class="toolbar__item toolbar__item__shadow">
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/home.png') }}" alt="home" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.home[_lng]|capitalize }}">
+        </a>
+    </div>
+</div>
+{% else %}
+<div class="toolbar__item toolbar__item__shadow">
+    <a href="#">
+        <img src="{{ url_for('static', filename='img/home.png') }}" alt="home" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.home[_lng]|capitalize }}">
+    </a>
+</div>
+{% endif %}
+<div>
+    <div class="toolbar__item toolbar__item__shadow mb-3">
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/add_folder.png') }}" alt="folder" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.add_folder[_lng]|capitalize }}">
+        </a>
+    </div>
+    <div class="toolbar__item toolbar__item__shadow mb-3">
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/add_contact.png') }}" alt="contact" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.add_contact[_lng]|capitalize }}">
+        </a>
+    </div>
+    <div class="toolbar__item toolbar__item__shadow mb-3">
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/add_note.png') }}" alt="note" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.add_note[_lng]|capitalize }}">
+        </a>
+    </div>
+</div>
+
+
+<div class="toolbar__item toolbar__item__shadow">
+    <a href="#">
+        <img src="{{ url_for('static', filename='img/exit.png') }}" alt="exit" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.exit[_lng]|capitalize }}">
+    </a>
+</div>
+

@@ -1,17 +1,20 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
 from flask_login import current_user, login_required
 from utils.lang import lang as LANG
 
 contacteur = Blueprint('contacteur', __name__)
 
-@contacteur.route('/', methods=['GET', 'POST'])
+@contacteur.route('/<int:level>', methods=['GET', 'POST'])
 @login_required
-def index() -> render_template:
+def index(level) -> render_template:
     """Главная страница"""
-    lng=current_user.language
+    lng = current_user.language
+    session['lng'] = lng
     return render_template('contacteur/index.html', 
-                           title=LANG['contacteur_title'][lng], 
-                           lng=lng)
+                           title=LANG['contacteur_title'][lng],
+                           language=LANG,
+                           _lng=lng,
+                           level=level)
 
 
 # ABOUT PAGE
