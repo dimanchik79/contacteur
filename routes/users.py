@@ -26,7 +26,7 @@ def authorize() -> render_template:
         if user:
             if user.username == request.form['username'] and check_password_hash(user.password, request.form['password']):
                 login_user(user, remember=True)
-                return redirect(url_for('contacteur.index', level=0))
+                return redirect(url_for('contacteur.index'))
             else:
                 err = "Неверный пароль"
         else:

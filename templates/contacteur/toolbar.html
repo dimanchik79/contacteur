@@ -1,27 +1,28 @@
 <!-- Index page's toolbar -->
 {% if level != 0 %}
 <div>
-    <div class="toolbar__item toolbar__item__shadow">
+    <div class="toolbar__item toolbar__item__shadow mt-1">
         <a href="#">
             <img src="{{ url_for('static', filename='img/back.png') }}" alt="back" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.back[_lng]|capitalize }}">
         </a>
     </div>
-    <div class="toolbar__item toolbar__item__shadow">
+    <div class="toolbar__item toolbar__item__shadow mb-3">
         <a href="#">
             <img src="{{ url_for('static', filename='img/home.png') }}" alt="home" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.home[_lng]|capitalize }}">
         </a>
     </div>
 </div>
 {% else %}
-<div class="toolbar__item toolbar__item__shadow">
+<div class="toolbar__item toolbar__item__shadow mt-1">
     <a href="#">
         <img src="{{ url_for('static', filename='img/home.png') }}" alt="home" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.home[_lng]|capitalize }}">
     </a>
 </div>
 {% endif %}
+
 <div>
     <div class="toolbar__item toolbar__item__shadow mb-3">
-        <a href="#">
+        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddFolder" aria-controls="offcanvasAddFolder">
             <img src="{{ url_for('static', filename='img/add_folder.png') }}" alt="folder" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.add_folder[_lng]|capitalize }}">
         </a>
     </div>
@@ -38,9 +39,11 @@
 </div>
 
 
-<div class="toolbar__item toolbar__item__shadow">
+<div class="toolbar__item toolbar__item__shadow mb-1">
     <a href="{{ url_for('users.logout')}}">
         <img src="{{ url_for('static', filename='img/exit.png') }}" alt="exit" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.exit[_lng]|capitalize }}">
     </a>
 </div>
+
+{% include "contacteur/add_folder.html" %}
 

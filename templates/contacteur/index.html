@@ -2,20 +2,25 @@
 
 
 {% block body %}
-<div class="structure">
-    <div class="toolbar toolbar__background">
-        {% include "contacteur/toolbar.html" %}
-    </div>
-    <div class="navigation">
-        <div class="content">
-            {% include "contacteur/content.html" %}
+<div class="wrap">
+    <div class="structure">
+        
+        <div class="toolbar">
+            {% include "contacteur/toolbar.html" %}
         </div>
-        <div class="navbar navbar__background">
-            {% include "contacteur/navbar.html" %}
+        
+        <div class="navigation">
+            <div class="header">
+                {% include "contacteur/path.html" %}
+            </div>
+            <div class="content pt-2 pb-2">
+                {% include "contacteur/content.html" %}
+            </div>
+            <div class="path">
+                {% include "contacteur/path.html" %}
+            </div>
         </div>
+            
     </div>
-    
-    
 </div>
-
 {% endblock body %}

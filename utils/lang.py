@@ -82,5 +82,9 @@ lang = {
     'add_note': {
         'eng': 'add note',
         'ru': 'добавить заметку',
+    },
+    'close': {
+        'eng': 'close',
+        'ru': 'закрыть',
     }
 }

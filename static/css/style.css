@@ -1,6 +1,6 @@
 :root {
     --bg-main: #344146;
-    --bg-toolbar: #00bcd4;
+    --bg-toolbar: #3d5361;
     --toolbar-item: #ffff;
     --bg-navbar: rgb(179, 252, 218);
 }
@@ -8,7 +8,8 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
+    scrollbar-color: rgb(123, 231, 250) grey;
 }
 
 a {
@@ -17,7 +18,7 @@ a {
 
 body {
     background-color: var(--bg-main);
-    color: beige;
+    color: rgb(247, 244, 97);
     height: 100%;
     width: auto;
 }
@@ -41,9 +42,50 @@ body {
     background-color: cadetblue;
 }
 
+.wrap {
+    display: flex;
+    height: 100vh;
+}
+
 .structure {
     display: flex;
     flex-direction: row;
+    height: 100vh;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+
+}
+
+.header {
+    height: 75px;
+    width: 100%;
+    background-color: #3d5361;
+    border-bottom: 2px solid lightslategray;
+}
+
+.path {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: #3d5361;
+    overflow-x: auto;
+    border-top: 2px solid lightslategray;
+}
+
+.gradient {
+    background:radial-gradient(at 29.87816849379261% 7.857769548084126%, hsla(203.33333333333331, 22.784810126582272%, 30.980392156862745%, 1) 0%, hsla(203.33333333333331, 22.784810126582272%, 30.980392156862745%, 0) 100%), radial-gradient(at 92.4310619382869% 12.05094889810514%, hsla(3.6363636363636243, 28.69565217391305%, 77.45098039215686%, 1) 0%, hsla(3.6363636363636243, 28.69565217391305%, 77.45098039215686%, 0) 100%), radial-gradient(at 40.181037287557885% 79.42396546103964%, hsla(33.749999999999986, 27.11864406779662%, 76.86274509803923%, 1) 0%, hsla(33.749999999999986, 27.11864406779662%, 76.86274509803923%, 0) 100%);
 }
 
 .toolbar {
@@ -57,57 +99,13 @@ body {
     color: white;
     padding: 5px;
     box-sizing: border-box;
-    border-right: 2px solid black;
-
-}
-
-.navigation {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 35px;
-    width: 100%;
-    background-color: var(--bg-navbar);
-    overflow-x: auto;
-}
-
-.content {
-    width: 100%;
-    height: 100vh;
-    background-color: var(--bg-main);
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: auto;
-
-}
-
-.toolbar__background {
-    background: -webkit-linear-gradient(90deg, rgb(191, 235, 253), var(--bg-toolbar));
-    background: -moz-linear-gradient(90deg, rgb(191, 235, 253),  var(--bg-toolbar));
-    background: linear-gradient(90deg, rgb(191, 235, 253),  var(--bg-toolbar));
-}
-
-.navbar__background {
-    background: -webkit-linear-gradient(180deg, rgb(191, 235, 253), var(--bg-navbar));
-    background: -moz-linear-gradient(180deg, rgb(191, 235, 253),  var(--bg-navbar));
-    background: linear-gradient(180deg, rgb(191, 235, 253),  var(--bg-navbar));
+    border-right: 2px solid lightslategray;
 }
 
 .toolbar__item {
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: var(--toolbar-item);
     height: 40px;
     width: 40px;
@@ -116,7 +114,24 @@ body {
 }
 
 .toolbar__item__shadow {
-    -webkit-box-shadow: 4px 4px 8px 0px rgba(21, 26, 31, 0.2);
-    -moz-box-shadow: 4px 4px 8px 0px rgba(21, 26, 31, 0.2);
-    box-shadow: 4px 4px 8px 0px rgba(21, 26, 31, 0.2);
+    -webkit-box-shadow: 4px 7px 11px -2px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 4px 7px 11px -2px rgba(0, 0, 0, 0.67);
+    box-shadow: 4px 7px 11px -2px rgba(0, 0, 0, 0.67);
 }
+
+.offcanvas__main {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+    border-radius: 0 15px 15px 0;
+    font-size: 14px;
+}
+
+.offcanvas__header {
+    gap: 15px;
+    background-color: var(--bg-toolbar);
+    color: black;
+    height: 35px;
+
+}
+
