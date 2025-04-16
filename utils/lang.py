@@ -86,5 +86,17 @@ lang = {
     'close': {
         'eng': 'close',
         'ru': 'закрыть',
+    },
+    'search': {
+        'eng': 'search',
+        'ru': 'поиск',
+    },
+    'typedoc': {
+        'eng': 'type of document',
+        'ru': 'тип документа',
+    },
+    'date': {
+        'eng': 'date',
+        'ru': 'дата',
     }
 }

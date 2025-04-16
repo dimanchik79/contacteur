@@ -1,0 +1,15 @@
+{% if 'navigation' in request.path %}
+<div class="container">
+    <div class="row me-1 ms-1">
+        <div class="col-1 d-flex justify-content-center align-items-center" style="height: 75px; border-right: 2px solid lightslategray;">
+            <img src="{{ url_for('static', filename='img/typedoc.png') }}" alt="type" height="20" width="20" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.typedoc[_lng]|capitalize }}">
+        </div>
+        <div class="col-9 d-flex justify-content-center align-items-center" style="height: 75px; border-right: 2px solid lightslategray;">
+            
+        </div>
+        <div class="col-2 d-flex justify-content-center align-items-center" style="height: 75px; border-right: 2px solid lightslategray;">
+            <img src="{{ url_for('static', filename='img/date.png') }}" alt="time" height="20" width="20" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.date[_lng]|capitalize }}">
+        </div>
+    </div>
+</div>
+{% endif %}
