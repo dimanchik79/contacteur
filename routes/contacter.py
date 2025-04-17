@@ -6,6 +6,7 @@ from db.models import DB, Catalog
 
 contacteur = Blueprint('contacteur', __name__)
 
+IMG = ['img/folder.png', 'img/contact.png', 'img/note.png']
 
 @contacteur.route('/', methods=['GET', 'POST'])
 @login_required
@@ -27,7 +28,7 @@ def navigation(level: int, uniq: str) -> render_template:
         documents = get_documents_level_zero()
     else:
         documents = get_documents_by_uniq(uniq)
-        
+    print(documents)    
     if request.method == 'POST':
         if 'folder_add' in request.form:
             if request.form['folder_name'] == "":
@@ -48,7 +49,8 @@ def navigation(level: int, uniq: str) -> render_template:
                            language=LANG,
                            _lng=_lng,
                            level=level,
-                           documents=documents)
+                           documents=documents,
+                           img=IMG)
     
 
 

@@ -92,8 +92,8 @@ lang = {
         'ru': 'поиск',
     },
     'doc_type': {
-        'eng': 'type of document',
-        'ru': 'тип документа',
+        'eng': 'type',
+        'ru': 'тип',
     },
     'date': {
         'eng': 'date',

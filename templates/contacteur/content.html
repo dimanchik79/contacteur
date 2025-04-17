@@ -1,3 +1,29 @@
+{% if documents %}
 <div class="container">
-
+    {% for item in documents %}
+        <div id="line" class="row">
+            <div class="col-1 d-flex justify-content-start align-items-center">
+                <a href="{{ url_for('.navigation', level=level + 1, uniq=item.uniq) }}">
+                    <img src="{{ url_for('static', filename=img[item.type]) }}" alt="folder" height="25" width="25">
+                </a>
+            </div>
+            <div class="col-8 d-flex justify-content-start align-items-center">
+                <a href="{{ url_for('.navigation', level=level + 1, uniq=item.uniq) }}">
+                    <b>
+                        {% if item.type == 0 %}
+                            {{ item.name|upper }}
+                        {% else %}
+                            {{ item.name|capitalize }}
+                        {% endif %}
+                    </b>
+                </a>
+            </div>
+            <div class="col-3 d-flex justify-content-start align-items-center">
+                <a href="{{ url_for('.navigation', level=level + 1, uniq=item.uniq) }}">
+                    <b>{{ item.date }}</b>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
 </div>
+{% endif %}
