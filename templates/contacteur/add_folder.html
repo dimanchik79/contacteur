@@ -17,8 +17,14 @@
                     <input type="text" class="form-control" id="folder_name" name="folder_name">
                 </div>
 
+                {% if error %}
+                <div class="col text-center mt-5" style="color: brown;">
+                    {{ error }}
+                </div>
+                {% endif %}
+
                 <div class="mt-5">
-                    <button type="submit" name="add" class="btn btn-success">{{ language.add_folder[_lng]|capitalize }}</button>
+                    <button type="submit" name="folder_add" class="btn btn-success">{{ language.add_folder[_lng]|capitalize }}</button>
                 </div>
 
             </div>

@@ -102,5 +102,9 @@ lang = {
     'doc_name': {
         'eng': 'document name',
         'ru': 'название документа',
-    }
+    },
+    'folder_name_error': {
+        'eng': "Folder name can't be empty.",
+        'ru': 'Название папки не может быть пустым.'
+    },
 }
