@@ -4,9 +4,55 @@
         <span id="offcanvasScrollingLabel">{{ language.add_folder[_lng]|upper }}</span>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
     </div>
-        <!-- Основная часть меню -->
-        <div class="offcanvas-body">
-            BZBZ
-        </div>
+    <div class="offcanvas-body">
+        <form method="POST">
+            <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}"> 
+            <div class="form-group">
+                <div>
+                    <label for="date">{{ language.date[_lng]|capitalize }}</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="mt-5">
+                    <label for="folder_name">{{ language.doc_name[_lng]|capitalize }}</label>
+                    <input type="text" class="form-control" id="folder_name" name="folder_name">
+                </div>
+
+                <div class="mt-5">
+                    <button type="submit" name="add" class="btn btn-success">{{ language.add_folder[_lng]|capitalize }}</button>
+                </div>
+
+            </div>
+        </form>
     </div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var offcanvasAddFolder = document.getElementById("offcanvasAddFolder");
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === "class") {
+                var attributeValue = mutation.target.getAttribute(mutation.attributeName);
+                if (attributeValue.includes("show")) {
+                    // Установка текущей даты в input с id="date"
+                    var dateInput = document.getElementById("date");
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, '0');
+                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    var yyyy = today.getFullYear();
+                    today = yyyy + '-' + mm + '-' + dd;
+                    dateInput.value = today;
+
+                    // Установка фокуса на input с id="folder_name"
+                    var folderNameInput = document.getElementById("folder_name");
+                    folderNameInput.focus();
+                }
+            }
+        });
+    });
+
+    observer.observe(offcanvasAddFolder, {
+        attributes: true
+    });
+});
+</script>
 </div>

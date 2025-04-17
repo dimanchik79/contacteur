@@ -24,7 +24,6 @@ class Catalog(DB.Model):
     uniq = DB.Column(DB.String(36), nullable=False)
     type = DB.Column(DB.Integer, nullable=False)
     name = DB.Column(DB.String(256), nullable=False)
-    level = DB.Column(DB.Integer, nullable=False)
     user_id = DB.Column(DB.Integer, DB.ForeignKey('users.id'), nullable=False)  
     
     

@@ -91,12 +91,16 @@ lang = {
         'eng': 'search',
         'ru': 'поиск',
     },
-    'typedoc': {
+    'doc_type': {
         'eng': 'type of document',
         'ru': 'тип документа',
     },
     'date': {
         'eng': 'date',
         'ru': 'дата',
+    },
+    'doc_name': {
+        'eng': 'document name',
+        'ru': 'название документа',
     }
 }

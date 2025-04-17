@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    width: 100%;
 }
 
 .navigation {
@@ -69,7 +70,7 @@ body {
 }
 
 .header {
-    height: 75px;
+    height: 40px;
     width: 100%;
     background-color: #3d5361;
     border-bottom: 2px solid lightslategray;
@@ -126,13 +127,15 @@ body {
     background-color: var(--bg-main);
     border-radius: 0 15px 15px 0;
     font-size: 14px;
+    
+    color: rgb(247, 244, 97);
 }
 
 .offcanvas__header {
     gap: 15px;
     background-color: var(--bg-toolbar);
-    color: black;
+    color: whitesmoke;
     height: 35px;
-
+    font-weight: 600;
 }
 
