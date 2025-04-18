@@ -1,14 +1,14 @@
 {% if documents %}
 <div class="container">
     {% for item in documents %}
-        <div id="line" class="row">
+        <div id="line" class="row m-1">
             <div class="col-1 d-flex justify-content-start align-items-center">
-                <a href="{{ url_for('.navigation', level=level + 1, uniq=item.uniq) }}">
+                <a href="{{ url_for('.navigation', level=level + 1, parent=item.uniq, name=item.name) }}">
                     <img src="{{ url_for('static', filename=img[item.type]) }}" alt="folder" height="25" width="25">
                 </a>
             </div>
             <div class="col-8 d-flex justify-content-start align-items-center">
-                <a href="{{ url_for('.navigation', level=level + 1, uniq=item.uniq) }}">
+                <a href="{{ url_for('.navigation', level=level + 1, parent=item.uniq, name=item.name) }}">
                     <b>
                         {% if item.type == 0 %}
                             {{ item.name|upper }}
@@ -19,7 +19,7 @@
                 </a>
             </div>
             <div class="col-3 d-flex justify-content-start align-items-center">
-                <a href="{{ url_for('.navigation', level=level + 1, uniq=item.uniq) }}">
+                <a href="{{ url_for('.navigation', level=level + 1, parent=item.uniq, name=item.name) }}">
                     <b>{{ item.date }}</b>
                 </a>
             </div>

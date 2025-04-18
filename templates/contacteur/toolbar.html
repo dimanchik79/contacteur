@@ -1,14 +1,14 @@
 <!-- Index page's toolbar -->
 <div>
     {% if level != 0 %}
-    <div class="toolbar__item toolbar__item__shadow mt-1">
-        <a href="#">
+    <div class="toolbar__item toolbar__item__shadow mt-1 mb-3">
+        <a href="{{ url_for('.back', level=level, parent=parent, name=name) }}">
             <img src="{{ url_for('static', filename='img/back.png') }}" alt="back" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.back[_lng]|capitalize }}">
         </a>
     </div>
     {% endif %}
     <div class="toolbar__item toolbar__item__shadow mb-3">
-        <a href="#">
+        <a href="{{ url_for('.index') }}">
             <img src="{{ url_for('static', filename='img/home.png') }}" alt="home" height="25" width="25" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ language.home[_lng]|capitalize }}">
         </a>
     </div>

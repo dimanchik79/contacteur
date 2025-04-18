@@ -1,12 +1,18 @@
 {% if 'navigation' in request.path %}
 <div class="container">
-    <div class="row" style="height: 100%; color: whitesmoke;">
+    <div class="row m-1" style="height: 100%; color: whitesmoke;">
         <div class="col-1 d-flex justify-content-start align-items-center">
             <img src="{{ url_for('static', filename='img/typedoc.png') }}" alt="folder" height="25" width="25">
         </div>
+        {% if level == 0 %}
         <div class="col-8 d-flex justify-content-start align-items-center">
             <b>{{ language.doc_name[_lng]|upper }}</b>
         </div>
+        {% else %}
+        <div class="col-8 d-flex justify-content-start align-items-center">
+            <b>{{ name|upper }}</b>
+        </div>
+        {% endif %}
         <div class="col-3 d-flex justify-content-start align-items-center">
             <b>{{ language.date[_lng]|upper }}</b>
         </div>

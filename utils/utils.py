@@ -26,7 +26,22 @@ def catalog_return(items: list) -> list:
              'name': item.name,
              'user_id': item.user_id,
              'level_0': item.level_0,
+             'parent': item.parent,
              } for item in items]
+    
+
+def add_document(request, level: int, parent: str, type_doc: int) -> None:
+    """Добавление документа в БД"""
+    folder = Catalog(date=request.form['date'], 
+                                uniq=get_uniq(),
+                                type=type_doc,
+                                name=request.form['folder_name'], 
+                                user_id=current_user.id,
+                                level_0=True if level == 0 else False,
+                                parent=parent)
+                
+    DB.session.add(folder)
+    DB.session.commit()
     
         
 def get_users(id: int) -> list:
@@ -48,9 +63,12 @@ def get_documents_level_zero() -> list:
     return catalog_return(items)
 
     
-def get_documents_by_uniq(uniq: str) -> list:
+def get_documents_by_uniq(parent: str, name: str) -> list:
     """Получение документов по уникальному значению"""
-    items = DB.session.query(Catalog).filter_by(user_id=current_user.id, uniq=uniq).order_by(Catalog.type, Catalog.date).all()
+    items = (DB.session.query(Catalog)
+    .filter_by(user_id=current_user.id, parent=parent)
+    .filter(Catalog.name != name)
+    .order_by(Catalog.type, Catalog.date).all())
     return catalog_return(items)
 
 
