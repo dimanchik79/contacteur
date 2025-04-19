@@ -20,7 +20,7 @@ a {
 body {
     background-color: var(--bg-main);
     color: rgb(247, 244, 97);
-    height: 100%;
+    height: 100vh;
     width: auto;
 }
 

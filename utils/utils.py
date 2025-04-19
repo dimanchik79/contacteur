@@ -20,7 +20,7 @@ def get_uniq() -> str:
 def catalog_return(items: list) -> list:
     """Функция возвращения каталога"""
     return [{'id': item.id,
-             'date': datetime.strftime(item.date, '%Y-%m-%d'),
+             'date': datetime.strftime(item.date, '%d.%m.%Y'),
              'type': item.type,
              'uniq': item.uniq,
              'name': item.name,

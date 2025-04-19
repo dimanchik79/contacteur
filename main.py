@@ -42,7 +42,7 @@ def load_user(user_id) -> object:
         
 def main():
     DB.create_all()
-    app.run(host='0.0.0.0', port='5002', debug=True)
+    app.run(host='0.0.0.0', port='8001', debug=True)
     
 
 if __name__ == "__main__":
